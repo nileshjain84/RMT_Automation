@@ -1,0 +1,67 @@
+Installation steps on clean machine
+
+Download the latest node js application  [node-v22.13.0-x64]  Setup path: D:\Automation Setup.
+
+Install the Node js application 
+
+Launch cmd UI 
+
+Check the node version                Type C:\Users\Admin1>node -v         =>>> output ==> v22.13.0
+
+check the npm version                 Type C:\Users\Admin1>npm version     =>>> output ==> npm: '10.9.2',  node: '22.13.0',
+
+C:\Users\Admin1>npm init -y
+Wrote to C:\Users\Admin1\package.json:
+
+{
+  "name": "admin1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
+Map the Project folder 
+C:\Users\Admin1>cd D:\Automation_Project
+C:\Users\Admin1>d:
+
+Install the Cypress application                     	  	D:\Automation_Project>npm install cypress --save-dev
+
+Install the report generation mochawesome tool       	  	D:\Automation_Project>npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
+
+[Used to add Mochawesome only to the current directory]		D:\Automation_Project>npm install mochawesome mochawesome-report-generator --save-dev   
+
+[Used to add Mochawesome globally]			                	D:\Automation_Project>npm install -g mochawesome mochawesome-report-generator                                
+                     
+Install the Dom element addin 				                  	D:\Automation_Project>npm install --save-dev @testing-library/dom
+
+Launch the Cypress application   [command prompt]               	        D:\Automation_Project>npx cypress open
+
+
+const mailOptions = {
+    from: "nileshjain84@gmail.com",
+    to: "nilesh.jain@neilsoft.com",
+    subject: "VS Code Terminal Output",
+    text: "Please find the terminal output below.",
+    attachments: [
+      {
+       filename: "output.txt",
+      content: output,
+      },
+    ],
+  };
+  
+  // Send the email
+  transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      console.error("Error sending email:", err);
+    } else {
+      console.log("Email sent:", info.response);
+    }
+  });

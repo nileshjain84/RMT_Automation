@@ -1,0 +1,107 @@
+Basic CSS selector Syntax
+Syntax: tagname[AttributeName='Attributevalue']
+Example : input[id=first_name]
+
+***********************************************************
+
+CSS selector: select by id
+Syntax: #elementID          Example: #first_name
+Syntax: tagName#elementID   Example: Input#first_name
+
+***********************************************************
+
+CSS selector: select by class tagName
+Syntax: .elementID          Example: .signup
+Syntax: tagName.elementID   Example: input.signup
+
+***********************************************************
+CSS selector by using otherweb element AttributesName
+Syntax: tagName[AttributeName='Attributevalue']
+Example: input[value='Sign me up']
+
+***********************************************************
+
+Advanced CSS selector(using mix of Tag, ID and Class name)
+Syntax: tagName.classvalue[AttributeName='Attributevalue']
+Syntax: tagName#idvalue[AttributeName='Attributevalue']
+Example: input.signup[type='submit'][value='sign me up']
+Example: input#submit_btn[type='submit'][value='sign me up']
+
+***********************************************************
+CSS selector - sub string
+Match prefix of the text
+Example: input[name^='country_c']
+
+Match suffix of the text
+Example: input[name$='y_client']
+
+Match sub-string of the text
+Example:input[name*='try_cl']
+
+***********************************************************
+Finding child or Subchild elements
+
+Direct child(child combinator (>) is used to select direct child)
+Syntax: tagname[AttributeName='Attributevalue']>tagName[AttributeName='Attributevalue']
+Example: select#country>option[value='AU']
+
+child or subchild (Descendant combinator () is used to select chikd or subchild)
+
+Syntax: tagname[AttributeName='Attributevalue']tagName[AttributeName='Attributevalue']
+Example: form#deorg_form div
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Running testcase through Terminal
+
+Map project directory .\node_modules\.bin\cypress.cmd run
+
+######################
+D:\Automation_Project> .\node_modules\.bin\cypress.cmd run --browser chrome --headed   [Run testcase and browser shown to user]
+######################
+
+***********************************************************
+Run tests specifying a single test file to run instead of all tests. The spec path should be an absolute path or can be relative to the current working directory.
+
+cypress run --spec "cypress/integration/Auth/login.cy.js"
+
+***********************************************************
+
+The "browser" argument can be set to chrome, chromium, edge, electron, firefox to launch a browser detected on your system. Cypress will attempt to automatically find the installed browser for you.
+
+cypress run --browser chrome --headed
+
+************************************************************
+prevent Cypress from exiting after running tests in a spec file, use --no-exit.
+
+cypress run --no-exit
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  it('Should login successfully', () => {
+    // Step 1: Visit the Remember The Milk website
+    cy.visit('https://www.rememberthemilk.com/');
+
+    // Step 2: Click on login button 
+    cy.get('.navbar-right > :nth-child(5) > a').click()
+    cy.url().should('include', '/login')
+
+    // Step 3: Click on login button 
+    cy.login('jainnil', 'Mahavir@2024');
+  });
+
+      //Verify the presence and visibility of the login form elements
+    cy.get('#username').should('exist').should('be.visible').and('contain.text', '').should('have.attr', 'placeholder', 'Email or username');
+    cy.get('#password').should('exist').should('be.visible').and('contain.text', '').should('have.attr', 'placeholder', 'Password');
+    cy.get('#login-button').should('exist').should('be.visible').and('contain.text', 'Log in');
+
+
+
+    *********************************************************************
+    Option 1: Wait for Page Load
+
+    cy.get("#login-button").click(); // Click the login button
+    cy.window().its("document.readyState").should("eq", "complete"); // Ensure page is fully loaded
+    *********************************************************************
