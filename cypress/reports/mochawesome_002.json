@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-27T04:52:12.523Z",
+    "end": "2025-02-27T04:52:25.009Z",
+    "duration": 12486,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bcb4e5aa-b086-4de7-b3df-3555e044b905",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Testcase\\TC_03_AddTask.cy.js",
+      "file": "cypress\\e2e\\Testcase\\TC_03_AddTask.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e8308c12-e8d6-4c21-9d2d-a7aa0000af2b",
+          "title": "Login Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should use Excel data to perform login tests",
+              "fullTitle": "Login Page should use Excel data to perform login tests",
+              "timedOut": null,
+              "duration": 10469,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.readExcelFile(\"Tasklist.xlsx\").then(data => {\n  data.shift(); // Remove headers if present\n  data.forEach(([Tasklist]) => {\n    cy.get('.b-bT-Sj-jX-lX').click().type(Tasklist).type('{Enter}');\n    // Add assertions based on expected outcomes\n    //cy.log(\"Verifying successful login\");\n    //cy.get('.col-md-6 > .mb-3').should(\"contain.text\", \"Neilsoft - Active Construction Sites\");\n  });\n});",
+              "err": {},
+              "uuid": "90ddc91d-c3ba-4fd3-9251-0e0fce90ae2e",
+              "parentUUID": "e8308c12-e8d6-4c21-9d2d-a7aa0000af2b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "90ddc91d-c3ba-4fd3-9251-0e0fce90ae2e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10469,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

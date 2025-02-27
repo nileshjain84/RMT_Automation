@@ -9,6 +9,7 @@ module.exports = defineConfig({
     // Define the base URL for your tests
     video: true, // Enable video recording
     screenshotOnRunFailure: true, // Enable screenshots on test failure
+    pageLoadTimeout: 120000, // Set timeout to 2 minutes
     "env": {
         "loginUrl": "https://www.rememberthemilk.com/login/",
         "dashboardUrl": "https://yourwebsite.com/dashboard",

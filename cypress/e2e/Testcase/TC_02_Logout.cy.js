@@ -1,17 +1,24 @@
-import Login from '../PageObject/loginPage.js'; 
-import 'cypress-xpath';
-import Common from "../support/Common"; 
+import Login from '../PageObject/loginPage.js'; // Correct import path
 
+describe('Login Page', () => {
+  const LoginPage = new Login();
 
-describe("Logout Test Case", () => {
+  beforeEach(() => {
+    LoginPage.visit();  // Visit the login page before each test
+    cy.fixture('loginData').then((data) => {
+      // Log data to check if it's loaded correctly
+      cy.log('Correct Username:', data.correctUsername);
+      cy.log('Correct Password:', data.correctPassword);
 
-    const LoginPage = new Login();
+      if (!data.correctUsername || !data.correctPassword) {
+        throw new Error('Missing valid login credentials');
+      }
 
-    beforeEach(() => {
-      LoginPage.visit();  // Visit the login page before each test
-      cy.viewport(1920, 1080);
-
-    });
+      LoginPage.fillUsername(data.correctUsername);
+      LoginPage.fillPassword(data.correctPassword);
+      LoginPage.submit();
+  });
+});
 
     it("should log out successfully", () => {
 
@@ -23,6 +30,7 @@ describe("Logout Test Case", () => {
         //cy.wait(4000)
 
         // Assert that the user is redirected to the login page after logout
-        cy.url().should('include', '/login').type('{Enter}');
+        cy.url().should('include', '/login');
+        
     });
 });

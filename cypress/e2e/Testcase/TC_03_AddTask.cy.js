@@ -17,22 +17,23 @@ describe('Login Page', () => {
       LoginPage.fillUsername(data.correctUsername);
       LoginPage.fillPassword(data.correctPassword);
       LoginPage.submit();
+
   });
 });
 
-        it("should use Excel data to perform login tests", () => {
-            cy.readExcelFile("Tasklist.xlsx").then((data) => {
-                data.shift(); // Remove headers if present
-                data.forEach(([Tasklist]) => {
+    it("should use Excel data to perform login tests", () => {
+        cy.readExcelFile("Tasklist.xlsx").then((data) => {
+            data.shift(); // Remove headers if present
+            data.forEach(([Tasklist]) => {
       
-                    cy.get('.b-bT-Sj-jX-lX').click().type(Tasklist).type('{Enter}');
-                    cy.wait(2000);
+            cy.get('.b-bT-Sj-jX-lX').click().type(Tasklist).type('{Enter}');
+
       
               // Add assertions based on expected outcomes
               //cy.log("Verifying successful login");
               //cy.get('.col-md-6 > .mb-3').should("contain.text", "Neilsoft - Active Construction Sites");
               
-          });
-        });
       });
     });
+  });
+});

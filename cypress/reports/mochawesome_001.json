@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-02-27T04:51:50.710Z",
+    "end": "2025-02-27T04:52:07.867Z",
+    "duration": 17157,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8ab39773-a787-41e1-8d50-6336d62b9401",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Testcase\\TC_02_Logout.cy.js",
+      "file": "cypress\\e2e\\Testcase\\TC_02_Logout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "43b8499b-b1b0-4831-ab88-9b2e16667acb",
+          "title": "Login Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should log out successfully",
+              "fullTitle": "Login Page should log out successfully",
+              "timedOut": null,
+              "duration": 5953,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const com = new Common();\ncom.loginProecss();\n//cy.get('.power > img').click();\n//cy.xpath(\"//button[normalize-space()='Yes']\").should('be.visible').click(); //assertion\n//cy.wait(4000)\n// Assert that the user is redirected to the login page after logout\ncy.url().should('include', '/login');",
+              "err": {
+                "message": "ReferenceError: Common is not defined",
+                "estack": "ReferenceError: Common is not defined\n    at Context.eval (webpack:///./cypress/e2e/Testcase/TC_02_Logout.cy.js:25:20)",
+                "diff": null
+              },
+              "uuid": "abbfa827-4721-4f8e-bc04-dfaa18203f93",
+              "parentUUID": "43b8499b-b1b0-4831-ab88-9b2e16667acb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "abbfa827-4721-4f8e-bc04-dfaa18203f93"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 5953,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
